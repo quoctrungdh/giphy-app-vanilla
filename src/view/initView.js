@@ -10,7 +10,6 @@ export default () => {
 	 */
 
 	document.addEventListener('click', evt => {
-		console.log(evt)
 		if(hasInParents(evt.target, 'a')) {
 			evt.preventDefault();
 			history.push(evt.target.getAttribute('href'));

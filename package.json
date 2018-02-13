@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "giphy-api": "^1.2.7",
     "history": "^4.7.2"
   }
 }
