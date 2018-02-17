@@ -1,3 +1,4 @@
+import './style.scss';
 import initView from './view/initView';
 // import controllers
 
@@ -8,5 +9,3 @@ initView()
 
 // init controllers
 routerController.init();
-
-console.log('index')

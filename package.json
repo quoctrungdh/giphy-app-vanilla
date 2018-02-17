@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "giphy-api": "^1.2.7",
-    "history": "^4.7.2"
+    "history": "^4.7.2",
+    "node-sass": "^4.7.2"
+  },
+  "scripts": {
+    "start": "parcel src/index.html"
   }
 }
