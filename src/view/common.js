@@ -1,3 +1,6 @@
+// import isFavorite, addFavorite, removeFavorite
+import { isFavorite, addFavorite, removeFavorite } from '../controller/favoriteController';
+
 const columns = 4;
 const gutters = columns - 1;
 const gutterWidth = 10;
@@ -62,10 +65,31 @@ function renderActionLayer($gif) {
 	// TODO: optimize font icons
 	const $copyAction = document.createElement('span');
 	$copyAction.classList.add('gif__action', 'gif__action__copy', 'far', 'fa-copy')
+	// bind click event to the copy action btn
 	$actions.appendChild($copyAction)
 
 	const $favoriteAction = document.createElement('span');
-	$favoriteAction.classList.add('gif__action', 'gif__action__favorite', 'far', 'fa-heart')
+	$favoriteAction.classList.add('gif__action', 'gif__action__favorite', 'fa-heart');
+
+	const { gif } = $gif;
+	if(isFavorite(gif.id)) {
+		$favoriteAction.classList.add('fas');
+	} else {
+		$favoriteAction.classList.add('far');
+	}
+
+	// bind fav action to fav action btn
+	$favoriteAction.addEventListener('click', () => {
+		if(isFavorite(gif.id)) {
+			removeFavorite(gif.id);
+			$favoriteAction.classList.remove('fas');
+			$favoriteAction.classList.add('far');
+		} else {
+			addFavorite(gif.id);
+			$favoriteAction.classList.remove('far');
+			$favoriteAction.classList.add('fas');
+		}
+	})
 	$actions.appendChild($favoriteAction);
 }
 
